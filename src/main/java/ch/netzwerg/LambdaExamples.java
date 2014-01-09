@@ -6,10 +6,10 @@ import java.util.function.Function;
  * @author rahel.luethy@gmail.com
  */
 @SuppressWarnings("ALL")
-public class Lambda {
+public class LambdaExamples {
 
     /*-------------------------------------------------------------------------
-      Basic Lambda Syntax
+      Basic LambdaExamples Syntax
      -------------------------------------------------------------------------*/
 
     // Generic Function interface
@@ -41,14 +41,14 @@ public class Lambda {
      -------------------------------------------------------------------------*/
 
     // Static method reference
-    private static Times ninetyNine = Lambda::ninetyNine;
+    private static Times ninetyNine = LambdaExamples::ninetyNine;
 
     public static int ninetyNine(int x) {
         return x * 99;
     }
 
     // Instance method reference
-    private static Times fiftyFive = new Lambda()::fiftyFive;
+    private static Times fiftyFive = new LambdaExamples()::fiftyFive;
 
     public int fiftyFive(int x) {
         return x * 55;
