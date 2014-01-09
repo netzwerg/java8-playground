@@ -1,4 +1,4 @@
-package ch.netzwerg.euler;
+package ch.netzwerg;
 
 import java.util.function.Function;
 
