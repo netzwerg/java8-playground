@@ -25,11 +25,19 @@ public class Lambda {
     // Custom functional interface, again with type inference
     private static Times fortyTwo = x -> x * 42;
 
+    // Method reference
+    private static Times ninetyNine = Lambda::ninetyNine;
+
+    public static int ninetyNine(int x) {
+        return x * 99;
+    }
+
     public static void main(String[] args) {
         System.out.println("2 * 3 = " + times3.apply(2));
         System.out.println("7 * 4 = " + times4.apply(7));
         System.out.println("6 * 5 = " + times5.apply(6));
         System.out.println("42 * 2 = " + fortyTwo.times(2));
+        System.out.println("99 * 10 = " + ninetyNine.times(10));
     }
 
 }
