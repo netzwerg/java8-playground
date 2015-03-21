@@ -1,4 +1,29 @@
-apply plugin: 'java'
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.javafxports:jfxmobile-plugin:1.0.0-b5'
+    }
+}
+
+apply plugin: 'org.javafxports.jfxmobile'
+
+mainClassName = 'ch.netzwerg.fx.RGBMixerFX'
+
+repositories {
+    jcenter()
+}
+
+jfxmobile {
+    ios {
+        forceLinkClasses = ['ch.netzwerg.fx.*']
+    }
+    android {
+        applicationPackage = 'ch.netzwerg.fx'
+    }
+}
 
 allprojects {
     sourceCompatibility = 1.8
