@@ -25,19 +25,12 @@ public class RGBMixerFX extends Application {
     private final Slider greenSlider = createSlider();
     private final Slider blueSlider = createSlider();
 
-    private final ObjectBinding<Paint> colorBinding = new ObjectBinding<Paint>() {
-        {
-            super.bind(redSlider.valueProperty(), greenSlider.valueProperty(), blueSlider.valueProperty());
-        }
-
-        @Override
-        protected Paint computeValue() {
-            int red = redSlider.valueProperty().intValue();
-            int green = greenSlider.valueProperty().intValue();
-            int blue = blueSlider.valueProperty().intValue();
-            return Color.rgb(red, green, blue);
-        }
-    };
+    private final ObjectBinding<Paint> colorBinding = Bindings.createObjectBinding(() -> {
+        int red = redSlider.valueProperty().intValue();
+        int green = greenSlider.valueProperty().intValue();
+        int blue = blueSlider.valueProperty().intValue();
+        return Color.rgb(red, green, blue);
+    }, redSlider.valueProperty(), greenSlider.valueProperty(), blueSlider.valueProperty());
 
     @Override
     public void start(Stage stage) throws Exception {
